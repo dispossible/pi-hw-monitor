@@ -1,0 +1,163 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+body {
+    background: hsl(218, 15%, 15%);
+    color: white;
+    font-family: sans-serif;
+}
+
+.view {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 16px;
+}
+
+.box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 16px;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.box_stats {
+    font-size: 0.9rem;
+    gap: 16px 8px;
+    grid-row: span 2;
+}
+
+.box_processes {
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr;
+}
+
+/* This is nasty, should have a class */
+div.box:first-of-type {
+    grid-column: span 2;
+}
+
+.box > output {
+    text-align: right;
+}
+
+.box > svg {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    color: hsl(215, 60%, 50%);
+    grid-column: 1 / -1;
+    background: rgba(255, 255, 255, 0.03);
+    max-height: 300px;
+}
+
+.box > h2 {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.box hr {
+    grid-column: 1 / -1;
+    width: 100%;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.box table {
+    border: 0;
+    border-spacing: 0;
+}
+
+.box tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.box th {
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.box td,
+.box th {
+    padding: 8px;
+    text-align: right;
+}
+
+.box td:first-child,
+.box th:first-child {
+    text-align: left;
+    max-width: 40vw;
+    line-height: 1.3em;
+}
